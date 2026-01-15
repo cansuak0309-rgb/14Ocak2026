@@ -1,4 +1,5 @@
 
+import { useState } from 'react'
 import './App.css'
 import TaskCard from './TaskCard'
 
@@ -24,6 +25,27 @@ const Tasks=[
   },
 ]
 
+
+//TODO: hook->ÖZEL FONKSİYON
+
+// const [count,setCount]=useState(10)
+// const[user,setUser]=useState({})
+// const[isComplated, setIsComplated]=useState(false)
+// console.log(user);
+
+// const arttir=()=>{
+//   let user1={
+//     name:"a",
+//     surname:"b",
+//     age:1
+//   }
+//   setUser(user1)
+//   setIsComplated(true)
+//   setCount(count +1)
+// }
+// const azalt=()=>{
+//   setCount(count-1)
+// }
   return (
     <div className='container'>
       <div>
@@ -40,6 +62,16 @@ const Tasks=[
 
     </div>
   )
+  
+{/* <div>
+  <h1>{count} </h1>
+  <h1>{isComplated ? "Tamamlandı" : "tamamlanmadı"} </h1>
+<input type="text" onChange={(e)=>console.log(e.target.value)}/>
+  <button onClick={arttir}> Arttır</button>
+  <button onClick={azalt}>Azalt</button>
+</div> */}
+
+  
 }
 
 export default App
