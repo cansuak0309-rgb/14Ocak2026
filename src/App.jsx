@@ -4,6 +4,7 @@ import './App.css'
 import TaskCard from './TaskCard'
 
 function App() {
+
 const Tasks=[
   {
     baslik:"Title1",
@@ -23,7 +24,22 @@ const Tasks=[
     saat:"19.00",
     yapildi: true
   },
+    {
+    baslik:"Title4",
+    aciklama:"Description",
+    saat:"17.00",
+    yapildi: false
+  },
+    {
+    baslik:"Title5",
+    aciklama:"Description",
+    saat:"19.00",
+    yapildi: true
+  }
 ]
+
+  const [inputValue, setInputValue]=useState("")
+  const [taskList, setTaskList]=useState(Tasks)
 
 
 //TODO: hook->ÖZEL FONKSİYON
@@ -48,8 +64,15 @@ const Tasks=[
 // }
   return (
     <div className='container'>
+          <input type="text" placeholder='Açıklama gir!' value={inputValue} onChange={(e)=> setInputValue(e.target.value)}/>
+          <button onClick={()=>{
+            const yeniListe= taskList.map(task=>({
+              ...task, aciklama: inputValue
+            })) 
+            setTaskList(yeniListe)
+          }}> EKLE </button>
       <div>
-        {Tasks.map((task, index) => (
+        {taskList.map((task, index) => (
           <TaskCard
             key={index}
             baslik={task.baslik}
